@@ -14,10 +14,16 @@ public class ZooManagement{
             System.out.println(ZooName + " comporte " + nbrCages + " cages");
         }
 
-        Animal Lion = new Animal("L", "Lions",26,true);
+        Animal Lion = new Animal("Felidae", "Lion",6,true);
         System.out.println(Lion);
+        Animal Elephant = new Animal("Elephantidae", "Elephant",10,true);
+        System.out.println(Elephant);
+        Animal Crocodile = new Animal("Crocodylidae", "Crocodile",8,false);
+        System.out.println(Crocodile);
 
-        Zoo myZoo = new Zoo("parc2","tunis",750,36);
+        Zoo myZoo = new Zoo("Park 205", "Tunis", 32);
+        myZoo.displayZoo();
+
         System.out.println(myZoo);
     }
 }
