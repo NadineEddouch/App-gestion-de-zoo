@@ -16,12 +16,12 @@ public class ZooManagement{
 
         Animal Lion = new Animal("Felidae", "Lion",6,true);
         System.out.println(Lion);
-        Animal Elephant = new Animal("Elephantidae", "Elephant",10,true);
-        System.out.println(Elephant);
+        Animal Giraffe = new Animal("Giraffidae", "Giraffe",10,true);
+        System.out.println(Giraffe);
         Animal Crocodile = new Animal("Crocodylidae", "Crocodile",8,false);
         System.out.println(Crocodile);
 
-        Zoo myZoo = new Zoo("Park 205", "Tunis", 32);
+        Zoo myZoo = new Zoo("Green Jungle Zoo", "Tunis", 32);
         myZoo.displayZoo();
 
         System.out.println(myZoo);
