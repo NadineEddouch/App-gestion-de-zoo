@@ -1,4 +1,9 @@
+package tn.esprit.gestionzoo.main;
+
 import java.util.Scanner;
+import tn.esprit.gestionzoo.entities.Animal;
+import tn.esprit.gestionzoo.entities.Zoo;
+
 
 public class ZooManagement {
     public static void main(String[] args) {
@@ -22,23 +27,23 @@ public class ZooManagement {
         System.out.println(zooName + " comporte " + nbrCages + " cages.");
         //Prosit 2
         Animal lion = new Animal();
-        lion.family = "Félidé";
-        lion.name = "Lion";
-        lion.age = 5;
-        lion.isMammal = true;
+        lion.setFamily("Félidé");
+        lion.setName("Lion");
+        lion.setAge(5);
+        lion.setIsMammal(true);
 
         Zoo myZoo = new Zoo();
-        myZoo.name = "Parc Animalier";
-        myZoo.city = "Tunis";
+        myZoo.setName("Parc Animalier");
+        myZoo.setCity("Tunis");
 
-        System.out.println("Zoo : " + myZoo.name + " à " + myZoo.city);
-        System.out.println("Animal : " + lion.name + " (" + lion.family + ")");
+        System.out.println("Zoo : " + myZoo.getName() + " à " + myZoo.getCity());
+        System.out.println("Animal : " + lion.getName() + " (" + lion.getFamily() + ")");
 
         Animal lion1 = new Animal("Félidé", "Lion", 5, true);
         Zoo myZoo1 = new Zoo("Parc Animalier", "Tunis");
 
-        System.out.println("Animal créé : " + lion1.name);
-        System.out.println("Zoo créé : " + myZoo1.name + " (" + myZoo.city + ")");
+        System.out.println("Animal créé : " + lion1.getName());
+        System.out.println("Zoo créé : " + myZoo1.getName() + " (" + myZoo.getCity() + ")");
 
         myZoo.displayZoo();
         System.out.println(myZoo);
@@ -81,7 +86,7 @@ public class ZooManagement {
         zoo3.addAnimal(Giraffe);
 
         Zoo zooPlusAnim = Zoo.comparerZoo(zoo2,zoo3);
-        System.out.println("Le zoo avec le plus d'animaux est  : " + zooPlusAnim.name);
+        System.out.println("Le zoo avec le plus d'animaux est  : " + zooPlusAnim.getName());
 
     }
 }

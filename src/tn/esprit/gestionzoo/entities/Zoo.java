@@ -1,10 +1,11 @@
+package tn.esprit.gestionzoo.entities;
+
 public class Zoo {
-    Animal[] animals = new Animal[25]; // max 25 animaux
-    String name;
-    String city;
+    private Animal[] animals = new Animal[25]; // max 25 animaux
+    private String name;
+    private String city;
     private static final int NBR_CAGES = 25;
-    public Zoo(String name, int age, String city, int nbrCages) {}
-    int nbrAnimals = 0;
+    private int nbrAnimals = 0;
 
     public Zoo() {
     }
@@ -13,6 +14,26 @@ public class Zoo {
     public Zoo(String name, String city) {
         this.name = name;
         this.city = city;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        if ( name == null ) {
+            System.out.println("Erreur! Le nom du zoo ne peut pas être vide.");
+        }
+        else {
+            this.name = name;
+        }
+    }
+    public String getCity() {
+        return city;
+    }
+    public void setCity(String city) {
+        this.city = city;
+    }
+    public int getNbrAnimals() {
+        return nbrAnimals;
     }
 
     public void displayZoo() {
@@ -25,17 +46,17 @@ public class Zoo {
     }
 
     public boolean addAnimal(Animal animal) {
-        if (nbrAnimals > animals.length) {
+        if (isZooFull()) {
             System.out.println("Impossible d'ajouter l'animal ! Le zoo est complet.");
             return false;
         }
         if (searchAnimal(animal) !=-1) {
-            System.out.println("Impossible ! l'animal <" + animal.name + "> est déjà présent dans le zoo.");
+            System.out.println("Impossible ! l'animal <" + animal.getName() + "> est déjà présent dans le zoo.");
             return false;
         }
         animals[nbrAnimals] = animal;
         nbrAnimals++;
-        System.out.println("L'animal <" + animal.name + "> a été ajouté avec succées au zoo.");
+        System.out.println("L'animal <" + animal.getName() + "> a été ajouté avec succées au zoo.");
         return true;
     }
 
@@ -48,24 +69,24 @@ public class Zoo {
     // instruction 11 du prosit 3
     public int searchAnimal(Animal animal){
         for (int i = 0; i < nbrAnimals; i++) {
-            if(animals[i].name.equals(animal.name)){
-                System.out.println("L'animal <" + animal.name + "> a été trouvé à l'indice " + i + ".");
+            if(animals[i].getName().equals(animal.getName())){
+                System.out.println("L'animal <" + animal.getName() + "> a été trouvé à l'indice " + i + ".");
                 return i ;
             }
         }
-        System.out.println("L'animal <" + animal.name + "> n'a pas été trouvé dans le zoo.");
+        System.out.println("L'animal <" + animal.getName() + "> n'a pas été trouvé dans le zoo.");
         return -1;
     }
 
     public boolean removeAnimal(Animal animal) {
         for (int i = 0; i < nbrAnimals; i++) {
-            if(animals[i].name.equals(animal.name)){
+            if(animals[i].getName().equals(animal.getName())){
                 animals[i] = null;
-                System.out.println("L'animal <"+ animal.name + "> a été supprimé du zoo. ");
+                System.out.println("L'animal <"+ animal.getName() + "> a été supprimé du zoo. ");
                 return true;
             }
         }
-        System.out.println("Suppression impossible, l'animal <" + animal.name + "> est introuvable.");
+        System.out.println("Suppression impossible, l'animal <" + animal.getName() + "> est introuvable.");
         return false;
     }
 
