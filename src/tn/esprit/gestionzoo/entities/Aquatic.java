@@ -17,4 +17,6 @@ public non-sealed class Aquatic extends Animal {
         System.out.println("This aquatic animal is swimming.");
     }
 
+
+
 }
