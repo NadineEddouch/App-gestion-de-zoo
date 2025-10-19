@@ -89,31 +89,44 @@ public class ZooManagement {
         System.out.println("Le zoo avec le plus d'animaux est  : " + zooPlusAnim.getName());
 
         //Prosit 5
-        Aquatic aquatic = new Aquatic();
         Terrestrial terrestrial = new Terrestrial();
         Dolphin dolphin = new Dolphin();
         Penguin penguin = new Penguin();
 
-        System.out.println(aquatic);
         System.out.println(terrestrial);
         System.out.println(dolphin);
         System.out.println(penguin);
 
-        Aquatic aquatic2 = new Aquatic("Poisson", "Poisson-clown", 2, false, "océan");
         Terrestrial terrestrial2 = new Terrestrial("Canidé", "Chien", 3, true, 4);
         Dolphin dolphin2 = new Dolphin("Cétacé", "Flipper", 6, true, "mer", 25.5f);
         Penguin penguin2 = new Penguin("Sphéniscidé", "Pingou", 4, false, "bassin", 15.8f);
 
-        System.out.println(aquatic2);
         System.out.println(terrestrial2);
         System.out.println(dolphin2);
         System.out.println(penguin2);
 
-        aquatic2.swim();
         dolphin2.swim();
         penguin2.swim();
 
+        //Prosit 6
+        myZoo1.addAquaticAnimal(dolphin2);
+        myZoo1.addAquaticAnimal(penguin2);
+        Dolphin d1 = new Dolphin("Félidé Aquatique", "Dolly", 4, true, "Océan", 12.5f);
+        Penguin p3 = new Penguin("Spheniscidae", "Pingu", 3, true, "Bassin", 15.0f);
+        Penguin p4 = new Penguin("Spheniscidae", "Pingu2", 2, true, "Mer", 8.0f);
+        myZoo1.addAquaticAnimal(d1);
+        myZoo1.addAquaticAnimal(p3);
+        myZoo1.addAquaticAnimal(p4);
 
+        System.out.println("Les animaux aquatiques ont été ajoutés avec succès dans le zoo <"+ myZoo1.getName() +">.");
+
+        myZoo1.makeAquaticsSwim();
+
+        System.out.println("Profondeur maximale des pingouins : " + myZoo1.maxPenguinSwimmingDepth() + " m");
+
+        myZoo1.displayNumberOfAquaticsByType();
+
+        System.out.println(p3.equals(p4));
 
     }
 }
