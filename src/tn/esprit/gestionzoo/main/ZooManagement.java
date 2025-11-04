@@ -50,41 +50,43 @@ public class ZooManagement {
 
         // Prosit 3
         Animal tiger = new Animal("Félidé" , "Tigre" ,4 , true);
-        Animal Crocodile = new Animal("Crocodylidae" , "Crocodile", 8, false);
-
+        Animal crocodile = new Animal("Crocodylidae" , "Crocodile", 8, false);
+/*
         myZoo.addAnimal(lion);
         myZoo.addAnimal(tiger);
         myZoo.addAnimal(Crocodile);
-
+*/
         myZoo.showAnimals();
 
         myZoo.searchAnimal(tiger);
         myZoo.searchAnimal(lion);
-        myZoo.searchAnimal(Crocodile);
+        myZoo.searchAnimal(crocodile);
 
-        Animal Giraffe = new Animal("Giraffidae", "Giraffe",10,true);
-        myZoo.searchAnimal(Giraffe);
+        Animal giraffe = new Animal("Giraffidae", "Giraffe",10,true);
+        myZoo.searchAnimal(giraffe);
 
         Animal lion2 = new Animal("Félidé", "Lion", 5, true);
         myZoo.searchAnimal(lion2);
-
+/*
         myZoo.addAnimal(tiger);
         myZoo.addAnimal(Giraffe);
-
+*/
         myZoo.removeAnimal(tiger);
         myZoo.showAnimals();
 
         myZoo.isZooFull();
 
         Zoo zoo2 = new Zoo("Safari Paradis", "Sousse" );
+        /*
         zoo2.addAnimal(tiger);
         zoo2.addAnimal(Giraffe);
-
+        */
         Zoo zoo3 = new Zoo("Zoo Aventure", "Tunis");
+        /*
         zoo3.addAnimal(tiger);
-        zoo3.addAnimal(Crocodile);
-        zoo3.addAnimal(Giraffe);
-
+        zoo3.addAnimal(crocodile);
+        zoo3.addAnimal(giraffe);
+        */
         Zoo zooPlusAnim = Zoo.comparerZoo(zoo2,zoo3);
         System.out.println("Le zoo avec le plus d'animaux est  : " + zooPlusAnim.getName());
 
@@ -128,5 +130,47 @@ public class ZooManagement {
 
         System.out.println(p3.equals(p4));
 
+        // Prosit 7
+ /*
+        try {
+            myZoo.addAnimal(new Animal("Canidé", "Chien", 3, true));
+            myZoo.addAnimal(new Animal("Oiseau", "Perroquet", 2, false));
+        } catch (Exception e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+        System.out.println("Nombre total d’animaux : " + myZoo.getNbrAnimals());
+*/
+        try {
+            myZoo.addAnimal(lion);
+        } catch (InvalidAgeException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        } catch (ZooFullException e) {
+            System.out.println("Zoo plein : " + e.getMessage());
+        }
+        System.out.println("Nombre total d’animaux : " + myZoo.getNbrAnimals());
+
+
+        try {
+            Animal chat = new Animal("Félidé", "Chat", -2, true);
+            myZoo.addAnimal(chat);
+        } catch (InvalidAgeException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        } catch (ZooFullException e) {
+            System.out.println("Zoo plein : " + e.getMessage());
+        }
+        System.out.println("Nombre total d’animaux : " + myZoo.getNbrAnimals());
+
+        try {
+            myZoo.addAnimal(lion);
+            myZoo.addAnimal(tiger);
+            myZoo.addAnimal(giraffe);
+            myZoo.addAnimal(crocodile);
+        } catch (InvalidAgeException | ZooFullException e) {
+            System.out.println("Erreur : " + e.getMessage());
+        }
+        System.out.println("Nombre total d’animaux : " + myZoo.getNbrAnimals());
+
     }
+
+
 }
